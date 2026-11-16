@@ -1,0 +1,290 @@
+{
+  "no_graph_mf": {
+    "dim": 32,
+    "lightgcn_layers": 0,
+    "bpr_epochs": 50,
+    "best_epoch": 35,
+    "best_fixed_negative_bpr_loss": 0.5173904299736023,
+    "epochs_run": 44,
+    "loss_trace": [
+      {
+        "epoch": 1,
+        "sampled_train_bpr_loss": 0.6934185028076172,
+        "fixed_negative_bpr_loss": 0.6870895028114319
+      },
+      {
+        "epoch": 2,
+        "sampled_train_bpr_loss": 0.68702632188797,
+        "fixed_negative_bpr_loss": 0.683538556098938
+      },
+      {
+        "epoch": 3,
+        "sampled_train_bpr_loss": 0.6834965944290161,
+        "fixed_negative_bpr_loss": 0.6814982295036316
+      },
+      {
+        "epoch": 4,
+        "sampled_train_bpr_loss": 0.6814700961112976,
+        "fixed_negative_bpr_loss": 0.6798665523529053
+      },
+      {
+        "epoch": 5,
+        "sampled_train_bpr_loss": 0.6799147725105286,
+        "fixed_negative_bpr_loss": 0.6778947710990906
+      },
+      {
+        "epoch": 6,
+        "sampled_train_bpr_loss": 0.6779392957687378,
+        "fixed_negative_bpr_loss": 0.6752480268478394
+      },
+      {
+        "epoch": 7,
+        "sampled_train_bpr_loss": 0.6752974390983582,
+        "fixed_negative_bpr_loss": 0.6717784404754639
+      },
+      {
+        "epoch": 8,
+        "sampled_train_bpr_loss": 0.6718167662620544,
+        "fixed_negative_bpr_loss": 0.6675335168838501
+      },
+      {
+        "epoch": 9,
+        "sampled_train_bpr_loss": 0.6674736142158508,
+        "fixed_negative_bpr_loss": 0.6625490188598633
+      },
+      {
+        "epoch": 10,
+        "sampled_train_bpr_loss": 0.6625828742980957,
+        "fixed_negative_bpr_loss": 0.6569108963012695
+      },
+      {
+        "epoch": 11,
+        "sampled_train_bpr_loss": 0.6570004820823669,
+        "fixed_negative_bpr_loss": 0.6506902575492859
+      },
+      {
+        "epoch": 12,
+        "sampled_train_bpr_loss": 0.6508073210716248,
+        "fixed_negative_bpr_loss": 0.6439010500907898
+      },
+      {
+        "epoch": 13,
+        "sampled_train_bpr_loss": 0.6440593004226685,
+        "fixed_negative_bpr_loss": 0.6366300582885742
+      },
+      {
+        "epoch": 14,
+        "sampled_train_bpr_loss": 0.6366012692451477,
+        "fixed_negative_bpr_loss": 0.6289151310920715
+      },
+      {
+        "epoch": 15,
+        "sampled_train_bpr_loss": 0.6288902163505554,
+        "fixed_negative_bpr_loss": 0.6208284497261047
+      },
+      {
+        "epoch": 16,
+        "sampled_train_bpr_loss": 0.6208993196487427,
+        "fixed_negative_bpr_loss": 0.6124683022499084
+      },
+      {
+        "epoch": 17,
+        "sampled_train_bpr_loss": 0.612436056137085,
+        "fixed_negative_bpr_loss": 0.6039722561836243
+      },
+      {
+        "epoch": 18,
+        "sampled_train_bpr_loss": 0.6039885878562927,
+        "fixed_negative_bpr_loss": 0.5954398512840271
+      },
+      {
+        "epoch": 19,
+        "sampled_train_bpr_loss": 0.5954394936561584,
+        "fixed_negative_bpr_loss": 0.5869888663291931
+      },
+      {
+        "epoch": 20,
+        "sampled_train_bpr_loss": 0.5866729617118835,
+        "fixed_negative_bpr_loss": 0.578715443611145
+      },
+      {
+        "epoch": 21,
+        "sampled_train_bpr_loss": 0.578522801399231,
+        "fixed_negative_bpr_loss": 0.5707408785820007
+      },
+      {
+        "epoch": 22,
+        "sampled_train_bpr_loss": 0.5708471536636353,
+        "fixed_negative_bpr_loss": 0.5631586313247681
+      },
+      {
+        "epoch": 23,
+        "sampled_train_bpr_loss": 0.5628045201301575,
+        "fixed_negative_bpr_loss": 0.5560742616653442
+      },
+      {
+        "epoch": 24,
+        "sampled_train_bpr_loss": 0.5562310814857483,
+        "fixed_negative_bpr_loss": 0.5495376586914062
+      },
+      {
+        "epoch": 25,
+        "sampled_train_bpr_loss": 0.549430251121521,
+        "fixed_negative_bpr_loss": 0.5435877442359924
+      },
+      {
+        "epoch": 26,
+        "sampled_train_bpr_loss": 0.5436111688613892,
+        "fixed_negative_bpr_loss": 0.538298487663269
+      },
+      {
+        "epoch": 27,
+        "sampled_train_bpr_loss": 0.5385557413101196,
+        "fixed_negative_bpr_loss": 0.5336198210716248
+      },
+      {
+        "epoch": 28,
+        "sampled_train_bpr_loss": 0.5338982343673706,
+        "fixed_negative_bpr_loss": 0.5296149849891663
+      },
+      {
+        "epoch": 29,
+        "sampled_train_bpr_loss": 0.5296100974082947,
+        "fixed_negative_bpr_loss": 0.5262091159820557
+      },
+      {
+        "epoch": 30,
+        "sampled_train_bpr_loss": 0.5265856981277466,
+        "fixed_negative_bpr_loss": 0.5234133005142212
+      },
+      {
+        "epoch": 31,
+        "sampled_train_bpr_loss": 0.5234436392784119,
+        "fixed_negative_bpr_loss": 0.521191418170929
+      },
+      {
+        "epoch": 32,
+        "sampled_train_bpr_loss": 0.5211140513420105,
+        "fixed_negative_bpr_loss": 0.5195406079292297
+      },
+      {
+        "epoch": 33,
+        "sampled_train_bpr_loss": 0.5196565985679626,
+        "fixed_negative_bpr_loss": 0.5183843374252319
+      },
+      {
+        "epoch": 34,
+        "sampled_train_bpr_loss": 0.5182985067367554,
+        "fixed_negative_bpr_loss": 0.5176888108253479
+      },
+      {
+        "epoch": 35,
+        "sampled_train_bpr_loss": 0.5179363489151001,
+        "fixed_negative_bpr_loss": 0.5173904299736023
+      },
+      {
+        "epoch": 36,
+        "sampled_train_bpr_loss": 0.5171757340431213,
+        "fixed_negative_bpr_loss": 0.5174227952957153
+      },
+      {
+        "epoch": 37,
+        "sampled_train_bpr_loss": 0.5171855092048645,
+        "fixed_negative_bpr_loss": 0.5177666544914246
+      },
+      {
+        "epoch": 38,
+        "sampled_train_bpr_loss": 0.5179882645606995,
+        "fixed_negative_bpr_loss": 0.5183629393577576
+      },
+      {
+        "epoch": 39,
+        "sampled_train_bpr_loss": 0.51814866065979,
+        "fixed_negative_bpr_loss": 0.5191665291786194
+      },
+      {
+        "epoch": 40,
+        "sampled_train_bpr_loss": 0.5190147757530212,
+        "fixed_negative_bpr_loss": 0.5201178789138794
+      },
+      {
+        "epoch": 41,
+        "sampled_train_bpr_loss": 0.5200721025466919,
+        "fixed_negative_bpr_loss": 0.5211503505706787
+      },
+      {
+        "epoch": 42,
+        "sampled_train_bpr_loss": 0.5211790204048157,
+        "fixed_negative_bpr_loss": 0.5222567915916443
+      },
+      {
+        "epoch": 43,
+        "sampled_train_bpr_loss": 0.5219969749450684,
+        "fixed_negative_bpr_loss": 0.5233691930770874
+      },
+      {
+        "epoch": 44,
+        "sampled_train_bpr_loss": 0.523280918598175,
+        "fixed_negative_bpr_loss": 0.5244362354278564
+      }
+    ],
+    "training_edges": 35144
+  },
+  "lightgcn": {
+    "dim": 32,
+    "lightgcn_layers": 2,
+    "bpr_epochs": 50,
+    "initialized_from": "converged no-graph MF embeddings; then BPR fine-tuned through LightGCN propagation",
+    "best_epoch": 0,
+    "best_fixed_negative_bpr_loss": 0.6056224703788757,
+    "epochs_run": 9,
+    "loss_trace": [
+      {
+        "epoch": 1,
+        "sampled_train_bpr_loss": 0.605547308921814,
+        "fixed_negative_bpr_loss": 0.6064342856407166
+      },
+      {
+        "epoch": 2,
+        "sampled_train_bpr_loss": 0.6064584851264954,
+        "fixed_negative_bpr_loss": 0.6072368025779724
+      },
+      {
+        "epoch": 3,
+        "sampled_train_bpr_loss": 0.6072109937667847,
+        "fixed_negative_bpr_loss": 0.6080305576324463
+      },
+      {
+        "epoch": 4,
+        "sampled_train_bpr_loss": 0.6078433990478516,
+        "fixed_negative_bpr_loss": 0.6088160872459412
+      },
+      {
+        "epoch": 5,
+        "sampled_train_bpr_loss": 0.6086575388908386,
+        "fixed_negative_bpr_loss": 0.6095949411392212
+      },
+      {
+        "epoch": 6,
+        "sampled_train_bpr_loss": 0.6094703674316406,
+        "fixed_negative_bpr_loss": 0.6103671193122864
+      },
+      {
+        "epoch": 7,
+        "sampled_train_bpr_loss": 0.6103655695915222,
+        "fixed_negative_bpr_loss": 0.6111334562301636
+      },
+      {
+        "epoch": 8,
+        "sampled_train_bpr_loss": 0.6110727190971375,
+        "fixed_negative_bpr_loss": 0.6118929982185364
+      },
+      {
+        "epoch": 9,
+        "sampled_train_bpr_loss": 0.6117809414863586,
+        "fixed_negative_bpr_loss": 0.612645149230957
+      }
+    ],
+    "training_edges": 35144
+  }
+}

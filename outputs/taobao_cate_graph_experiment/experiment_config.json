@@ -1,0 +1,30 @@
+{
+  "dataset": "Taobao UserBehavior sampled 2-core historical graph",
+  "n_users": 1801,
+  "n_items": 13060,
+  "historical_positive_edges": 35144,
+  "candidate_rows": 180100,
+  "train_users": 1081,
+  "validation_users": 360,
+  "test_users": 360,
+  "candidate_per_user": 100,
+  "top_k": 10,
+  "seeds": [
+    17,
+    29,
+    43,
+    71,
+    101
+  ],
+  "representation_dim": 32,
+  "lightgcn_layers": 2,
+  "bpr_epochs": 50,
+  "outcome_head": "shared 64-unit ReLU trunk, two factual Bernoulli potential-outcome heads",
+  "label_generation": "semi-synthetic; A~Bernoulli(e(X,G)); Y~Bernoulli(p_A); true CATE=p1-p0",
+  "environments": {
+    "feature_effect": "graph affinity affects untreated purchase propensity; treatment effect depends on activity and candidate-specific category affinity",
+    "graph_effect": "graph affinity is an explicit treatment-effect modifier"
+  },
+  "policy_value": "mean over test users of expected number of purchases among top-10 candidates; incremental value sums known p1-p0; baseline sums p0",
+  "limitation": "No logged recommendation exposure in source data; results apply to the declared semi-synthetic mechanisms and sampled graph."
+}

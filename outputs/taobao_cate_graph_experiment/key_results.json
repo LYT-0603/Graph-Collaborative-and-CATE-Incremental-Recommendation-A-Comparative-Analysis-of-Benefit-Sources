@@ -1,0 +1,816 @@
+{
+  "experiment": {
+    "dataset": "Taobao UserBehavior sampled 2-core historical graph",
+    "n_users": 1801,
+    "n_items": 13060,
+    "historical_positive_edges": 35144,
+    "candidate_rows": 180100,
+    "train_users": 1081,
+    "validation_users": 360,
+    "test_users": 360,
+    "candidate_per_user": 100,
+    "top_k": 10,
+    "seeds": [
+      17,
+      29,
+      43,
+      71,
+      101
+    ],
+    "representation_dim": 32,
+    "lightgcn_layers": 2,
+    "bpr_epochs": 50,
+    "outcome_head": "shared 64-unit ReLU trunk, two factual Bernoulli potential-outcome heads",
+    "label_generation": "semi-synthetic; A~Bernoulli(e(X,G)); Y~Bernoulli(p_A); true CATE=p1-p0",
+    "environments": {
+      "feature_effect": "graph affinity affects untreated purchase propensity; treatment effect depends on activity and candidate-specific category affinity",
+      "graph_effect": "graph affinity is an explicit treatment-effect modifier"
+    },
+    "policy_value": "mean over test users of expected number of purchases among top-10 candidates; incremental value sums known p1-p0; baseline sums p0",
+    "limitation": "No logged recommendation exposure in source data; results apply to the declared semi-synthetic mechanisms and sampled graph."
+  },
+  "group_metrics": {
+    "feature_effect": {
+      "lightgcn": {
+        "p1_rmse": {
+          "mean": 0.022696836788357662,
+          "sd": 0.0004764504963857569,
+          "ci95_low": 0.022105340200921298,
+          "ci95_high": 0.023288333375794026,
+          "n_seeds": 5
+        },
+        "p1_mse": {
+          "mean": 0.0005153280042577201,
+          "sd": 2.153616656556845e-05,
+          "ci95_low": 0.0004885916085007071,
+          "ci95_high": 0.000542064400014733,
+          "n_seeds": 5
+        },
+        "p1_rank_correlation": {
+          "mean": 0.7062228551512044,
+          "sd": 0.012154907890344171,
+          "ci95_low": 0.6911329631429466,
+          "ci95_high": 0.7213127471594623,
+          "n_seeds": 5
+        },
+        "cate_rmse": {
+          "mean": 0.017138717696070623,
+          "sd": 0.0007099451951260414,
+          "ci95_low": 0.016257345626213646,
+          "ci95_high": 0.0180200897659276,
+          "n_seeds": 5
+        },
+        "cate_mae": {
+          "mean": 0.01177452709525818,
+          "sd": 0.0004138377048685606,
+          "ci95_low": 0.01126076209335531,
+          "ci95_high": 0.01228829209716105,
+          "n_seeds": 5
+        },
+        "cate_rank_correlation": {
+          "mean": 0.7744441789257529,
+          "sd": 0.02834236088058479,
+          "ci95_low": 0.7392581315442793,
+          "ci95_high": 0.8096302263072265,
+          "n_seeds": 5
+        },
+        "probability_policy_baseline_purchase": {
+          "mean": 0.8098002833127975,
+          "sd": 0.006911793320499097,
+          "ci95_low": 0.8012195342252143,
+          "ci95_high": 0.8183810324003807,
+          "n_seeds": 5
+        },
+        "probability_policy_incremental_purchase": {
+          "mean": 0.7198242299755414,
+          "sd": 0.0074948908946997714,
+          "ci95_low": 0.710519585692343,
+          "ci95_high": 0.7291288742587398,
+          "n_seeds": 5
+        },
+        "probability_policy_total_purchase": {
+          "mean": 1.5296245162023439,
+          "sd": 0.009548483513986924,
+          "ci95_low": 1.5177704086789825,
+          "ci95_high": 1.5414786237257052,
+          "n_seeds": 5
+        },
+        "cate_policy_baseline_purchase": {
+          "mean": 0.7259854352308645,
+          "sd": 0.026026321704819774,
+          "ci95_low": 0.6936746692883355,
+          "ci95_high": 0.7582962011733934,
+          "n_seeds": 5
+        },
+        "cate_policy_incremental_purchase": {
+          "mean": 0.7152450642072492,
+          "sd": 0.011550529900330654,
+          "ci95_low": 0.7009054862847703,
+          "ci95_high": 0.7295846421297281,
+          "n_seeds": 5
+        },
+        "cate_policy_total_purchase": {
+          "mean": 1.4412305039167408,
+          "sd": 0.02263893246650682,
+          "ci95_low": 1.4131250629554635,
+          "ci95_high": 1.469335944878018,
+          "n_seeds": 5
+        },
+        "oracle_probability_incremental_purchase": {
+          "mean": 0.7705394573095772,
+          "sd": 0.0,
+          "ci95_low": 0.7705394573095772,
+          "ci95_high": 0.7705394573095772,
+          "n_seeds": 5
+        },
+        "oracle_probability_total_purchase": {
+          "mean": 1.6661629360583095,
+          "sd": 2.482534153247273e-16,
+          "ci95_low": 1.6661629360583092,
+          "ci95_high": 1.6661629360583097,
+          "n_seeds": 5
+        },
+        "oracle_cate_incremental_purchase": {
+          "mean": 0.8223818643639487,
+          "sd": 1.2412670766236366e-16,
+          "ci95_low": 0.8223818643639486,
+          "ci95_high": 0.8223818643639488,
+          "n_seeds": 5
+        },
+        "oracle_cate_total_purchase": {
+          "mean": 1.499497348235713,
+          "sd": 0.0,
+          "ci95_low": 1.499497348235713,
+          "ci95_high": 1.499497348235713,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.13653841985596563,
+          "sd": 0.009548483513986886,
+          "ci95_low": 0.1246843123326043,
+          "ci95_high": 0.14839252737932696,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.10713680015669928,
+          "sd": 0.011550529900330649,
+          "ci95_low": 0.09279722223422045,
+          "ci95_high": 0.12147637807917812,
+          "n_seeds": 5
+        }
+      },
+      "no_graph_mf": {
+        "p1_rmse": {
+          "mean": 0.02444374144373296,
+          "sd": 0.0006192491497033428,
+          "ci95_low": 0.023674965334565395,
+          "ci95_high": 0.025212517552900528,
+          "n_seeds": 5
+        },
+        "p1_mse": {
+          "mean": 0.00059780327137556,
+          "sd": 3.0309779985696305e-05,
+          "ci95_low": 0.0005601747421506247,
+          "ci95_high": 0.0006354318006004953,
+          "n_seeds": 5
+        },
+        "p1_rank_correlation": {
+          "mean": 0.6666837253661676,
+          "sd": 0.01791967060809853,
+          "ci95_low": 0.6444370825500119,
+          "ci95_high": 0.6889303681823233,
+          "n_seeds": 5
+        },
+        "cate_rmse": {
+          "mean": 0.01782364770770068,
+          "sd": 0.000817517052314058,
+          "ci95_low": 0.01680872894849492,
+          "ci95_high": 0.01883856646690644,
+          "n_seeds": 5
+        },
+        "cate_mae": {
+          "mean": 0.01241883318871256,
+          "sd": 0.0008199848006685545,
+          "ci95_low": 0.011400850806441213,
+          "ci95_high": 0.013436815570983907,
+          "n_seeds": 5
+        },
+        "cate_rank_correlation": {
+          "mean": 0.7630991906672341,
+          "sd": 0.03043781870007435,
+          "ci95_low": 0.7253117058672939,
+          "ci95_high": 0.8008866754671743,
+          "n_seeds": 5
+        },
+        "probability_policy_baseline_purchase": {
+          "mean": 0.770748050759236,
+          "sd": 0.009311141608476677,
+          "ci95_low": 0.7591885948906214,
+          "ci95_high": 0.7823075066278506,
+          "n_seeds": 5
+        },
+        "probability_policy_incremental_purchase": {
+          "mean": 0.7237542382131019,
+          "sd": 0.006249816903943291,
+          "ci95_low": 0.7159953096385129,
+          "ci95_high": 0.731513166787691,
+          "n_seeds": 5
+        },
+        "probability_policy_total_purchase": {
+          "mean": 1.4945022912489043,
+          "sd": 0.00948057563260126,
+          "ci95_low": 1.4827324889795082,
+          "ci95_high": 1.5062720935183005,
+          "n_seeds": 5
+        },
+        "cate_policy_baseline_purchase": {
+          "mean": 0.7184394817716545,
+          "sd": 0.017818466434300066,
+          "ci95_low": 0.6963184803891633,
+          "ci95_high": 0.7405604831541457,
+          "n_seeds": 5
+        },
+        "cate_policy_incremental_purchase": {
+          "mean": 0.7148774513271119,
+          "sd": 0.0109941329969058,
+          "ci95_low": 0.701228620653576,
+          "ci95_high": 0.7285262820006477,
+          "n_seeds": 5
+        },
+        "cate_policy_total_purchase": {
+          "mean": 1.4333169348372352,
+          "sd": 0.02033750339486976,
+          "ci95_low": 1.408068637382842,
+          "ci95_high": 1.4585652322916285,
+          "n_seeds": 5
+        },
+        "oracle_probability_incremental_purchase": {
+          "mean": 0.7705394573095772,
+          "sd": 0.0,
+          "ci95_low": 0.7705394573095772,
+          "ci95_high": 0.7705394573095772,
+          "n_seeds": 5
+        },
+        "oracle_probability_total_purchase": {
+          "mean": 1.6661629360583095,
+          "sd": 2.482534153247273e-16,
+          "ci95_low": 1.6661629360583092,
+          "ci95_high": 1.6661629360583097,
+          "n_seeds": 5
+        },
+        "oracle_cate_incremental_purchase": {
+          "mean": 0.8223818643639487,
+          "sd": 1.2412670766236366e-16,
+          "ci95_low": 0.8223818643639486,
+          "ci95_high": 0.8223818643639488,
+          "n_seeds": 5
+        },
+        "oracle_cate_total_purchase": {
+          "mean": 1.499497348235713,
+          "sd": 0.0,
+          "ci95_low": 1.499497348235713,
+          "ci95_high": 1.499497348235713,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.17166064480940507,
+          "sd": 0.009480575632601337,
+          "ci95_low": 0.15989084254000882,
+          "ci95_high": 0.18343044707880132,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.10750441303683649,
+          "sd": 0.010994132996905796,
+          "ci95_low": 0.09385558236330059,
+          "ci95_high": 0.12115324371037238,
+          "n_seeds": 5
+        }
+      }
+    },
+    "graph_effect": {
+      "lightgcn": {
+        "p1_rmse": {
+          "mean": 0.029885521293538598,
+          "sd": 0.0023555367635190515,
+          "ci95_low": 0.026961204984138964,
+          "ci95_high": 0.03280983760293823,
+          "n_seeds": 5
+        },
+        "p1_mse": {
+          "mean": 0.0008975832257419401,
+          "sd": 0.0001432103573953732,
+          "ci95_low": 0.0007197925878320542,
+          "ci95_high": 0.001075373863651826,
+          "n_seeds": 5
+        },
+        "p1_rank_correlation": {
+          "mean": 0.907214017681061,
+          "sd": 0.016247517539577004,
+          "ci95_low": 0.8870432942756408,
+          "ci95_high": 0.9273847410864813,
+          "n_seeds": 5
+        },
+        "cate_rmse": {
+          "mean": 0.02732367813587186,
+          "sd": 0.002472004184556607,
+          "ci95_low": 0.024254771606472852,
+          "ci95_high": 0.030392584665270866,
+          "n_seeds": 5
+        },
+        "cate_mae": {
+          "mean": 0.02085477188229556,
+          "sd": 0.002071224464310408,
+          "ci95_low": 0.018283419324689233,
+          "ci95_high": 0.02342612443990189,
+          "n_seeds": 5
+        },
+        "cate_rank_correlation": {
+          "mean": 0.9234146167594683,
+          "sd": 0.01596262890149024,
+          "ci95_low": 0.9035975726103528,
+          "ci95_high": 0.9432316609085839,
+          "n_seeds": 5
+        },
+        "probability_policy_baseline_purchase": {
+          "mean": 0.40148845988843174,
+          "sd": 0.0037971753232317485,
+          "ci95_low": 0.39677439984939955,
+          "ci95_high": 0.4062025199274639,
+          "n_seeds": 5
+        },
+        "probability_policy_incremental_purchase": {
+          "mean": 2.536187475787268,
+          "sd": 0.014119314020439417,
+          "ci95_low": 2.5186588424383998,
+          "ci95_high": 2.5537161091361367,
+          "n_seeds": 5
+        },
+        "probability_policy_total_purchase": {
+          "mean": 2.937675943904453,
+          "sd": 0.016054848971025444,
+          "ci95_low": 2.917744411772143,
+          "ci95_high": 2.9576074760367628,
+          "n_seeds": 5
+        },
+        "cate_policy_baseline_purchase": {
+          "mean": 0.39567768595284886,
+          "sd": 0.004170948132709253,
+          "ci95_low": 0.3904996000749109,
+          "ci95_high": 0.4008557718307868,
+          "n_seeds": 5
+        },
+        "cate_policy_incremental_purchase": {
+          "mean": 2.5430973651011786,
+          "sd": 0.011525248250547666,
+          "ci95_low": 2.5287891734605585,
+          "ci95_high": 2.5574055567417986,
+          "n_seeds": 5
+        },
+        "cate_policy_total_purchase": {
+          "mean": 2.938775050905016,
+          "sd": 0.014398303746075891,
+          "ci95_low": 2.92090006159284,
+          "ci95_high": 2.9566500402171916,
+          "n_seeds": 5
+        },
+        "oracle_probability_incremental_purchase": {
+          "mean": 2.612920889589521,
+          "sd": 0.0,
+          "ci95_low": 2.612920889589521,
+          "ci95_high": 2.612920889589521,
+          "n_seeds": 5
+        },
+        "oracle_probability_total_purchase": {
+          "mean": 3.0255284004741245,
+          "sd": 0.0,
+          "ci95_low": 3.0255284004741245,
+          "ci95_high": 3.0255284004741245,
+          "n_seeds": 5
+        },
+        "oracle_cate_incremental_purchase": {
+          "mean": 2.618297259675132,
+          "sd": 0.0,
+          "ci95_low": 2.618297259675132,
+          "ci95_high": 2.618297259675132,
+          "n_seeds": 5
+        },
+        "oracle_cate_total_purchase": {
+          "mean": 3.0195399112171595,
+          "sd": 0.0,
+          "ci95_low": 3.0195399112171595,
+          "ci95_high": 3.0195399112171595,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.08785245656967172,
+          "sd": 0.01605484897102545,
+          "ci95_low": 0.06792092443736165,
+          "ci95_high": 0.10778398870198179,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.07519989457395328,
+          "sd": 0.011525248250547784,
+          "ci95_low": 0.06089170293333324,
+          "ci95_high": 0.08950808621457332,
+          "n_seeds": 5
+        }
+      },
+      "no_graph_mf": {
+        "p1_rmse": {
+          "mean": 0.04379583235875338,
+          "sd": 0.0009664813583479759,
+          "ci95_low": 0.042595979636130044,
+          "ci95_high": 0.04499568508137672,
+          "n_seeds": 5
+        },
+        "p1_mse": {
+          "mean": 0.0019188222009688199,
+          "sd": 8.584657672917968e-05,
+          "ci95_low": 0.0018122466856454154,
+          "ci95_high": 0.0020253977162922243,
+          "n_seeds": 5
+        },
+        "p1_rank_correlation": {
+          "mean": 0.7675777444984544,
+          "sd": 0.012057421230028707,
+          "ci95_low": 0.7526088787612039,
+          "ci95_high": 0.7825466102357049,
+          "n_seeds": 5
+        },
+        "cate_rmse": {
+          "mean": 0.04202281981706614,
+          "sd": 0.0008373882635415319,
+          "ci95_low": 0.04098323164578412,
+          "ci95_high": 0.04306240798834816,
+          "n_seeds": 5
+        },
+        "cate_mae": {
+          "mean": 0.03126956745982166,
+          "sd": 0.0009341096930387158,
+          "ci95_low": 0.030109903024765045,
+          "ci95_high": 0.03242923189487827,
+          "n_seeds": 5
+        },
+        "cate_rank_correlation": {
+          "mean": 0.7875059587070767,
+          "sd": 0.01006620186715282,
+          "ci95_low": 0.7750091219988918,
+          "ci95_high": 0.8000027954152616,
+          "n_seeds": 5
+        },
+        "probability_policy_baseline_purchase": {
+          "mean": 0.40224731773138045,
+          "sd": 0.0015879836809048436,
+          "ci95_low": 0.40027589166448563,
+          "ci95_high": 0.40421874379827527,
+          "n_seeds": 5
+        },
+        "probability_policy_incremental_purchase": {
+          "mean": 2.402134082814058,
+          "sd": 0.008931560267765886,
+          "ci95_low": 2.3910458638722347,
+          "ci95_high": 2.4132223017558814,
+          "n_seeds": 5
+        },
+        "probability_policy_total_purchase": {
+          "mean": 2.8043814085589513,
+          "sd": 0.007909836816129372,
+          "ci95_low": 2.7945616234618424,
+          "ci95_high": 2.8142011936560603,
+          "n_seeds": 5
+        },
+        "cate_policy_baseline_purchase": {
+          "mean": 0.39535945625768765,
+          "sd": 0.001389810615010266,
+          "ci95_low": 0.3936340551043728,
+          "ci95_high": 0.39708485741100247,
+          "n_seeds": 5
+        },
+        "cate_policy_incremental_purchase": {
+          "mean": 2.4111058223247523,
+          "sd": 0.004608428795686375,
+          "ci95_low": 2.4053846195413158,
+          "ci95_high": 2.416827025108189,
+          "n_seeds": 5
+        },
+        "cate_policy_total_purchase": {
+          "mean": 2.8064652809169557,
+          "sd": 0.005495806794705617,
+          "ci95_low": 2.7996424294582263,
+          "ci95_high": 2.813288132375685,
+          "n_seeds": 5
+        },
+        "oracle_probability_incremental_purchase": {
+          "mean": 2.612920889589521,
+          "sd": 0.0,
+          "ci95_low": 2.612920889589521,
+          "ci95_high": 2.612920889589521,
+          "n_seeds": 5
+        },
+        "oracle_probability_total_purchase": {
+          "mean": 3.0255284004741245,
+          "sd": 0.0,
+          "ci95_low": 3.0255284004741245,
+          "ci95_high": 3.0255284004741245,
+          "n_seeds": 5
+        },
+        "oracle_cate_incremental_purchase": {
+          "mean": 2.618297259675132,
+          "sd": 0.0,
+          "ci95_low": 2.618297259675132,
+          "ci95_high": 2.618297259675132,
+          "n_seeds": 5
+        },
+        "oracle_cate_total_purchase": {
+          "mean": 3.0195399112171595,
+          "sd": 0.0,
+          "ci95_low": 3.0195399112171595,
+          "ci95_high": 3.0195399112171595,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.221146991915173,
+          "sd": 0.007909836816129364,
+          "ci95_low": 0.211327206818064,
+          "ci95_high": 0.23096677701228202,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.2071914373503788,
+          "sd": 0.004608428795686356,
+          "ci95_low": 0.20147023456694216,
+          "ci95_high": 0.21291264013381542,
+          "n_seeds": 5
+        }
+      }
+    }
+  },
+  "paired_contrasts": {
+    "feature_effect": {
+      "LightGCN_minus_no_graph_p1_rmse": {
+        "mean": -0.001746904655375301,
+        "sd": 0.0010026392568531625,
+        "ci95_low": -0.002991646141336964,
+        "ci95_high": -0.000502163169413638,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_p1_mse": {
+        "mean": -8.247526711783999e-05,
+        "sd": 4.749252646666003e-05,
+        "ci95_low": -0.00014143557369083667,
+        "ci95_high": -2.3514960544843303e-05,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_p1_rank_correlation": {
+        "mean": 0.0395391297850368,
+        "sd": 0.02101342408679966,
+        "ci95_low": 0.013451700488643088,
+        "ci95_high": 0.0656265590814305,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_rmse": {
+        "mean": -0.0006849300116300597,
+        "sd": 0.0011275492261793754,
+        "ci95_low": -0.002084742845305077,
+        "ci95_high": 0.0007148828220449576,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_mae": {
+        "mean": -0.0006443060934543801,
+        "sd": 0.0010674225418553108,
+        "ci95_low": -0.0019694737565160102,
+        "ci95_high": 0.0006808615696072502,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_rank_correlation": {
+        "mean": 0.011344988258518906,
+        "sd": 0.029558360906291558,
+        "ci95_low": -0.025350680523255897,
+        "ci95_high": 0.04804065704029371,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_probability_policy_incremental_purchase": {
+        "mean": -0.003930008237560556,
+        "sd": 0.006845988190731114,
+        "ci95_low": -0.01242906256359182,
+        "ci95_high": 0.004569046088470709,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_probability_policy_total_purchase": {
+        "mean": 0.03512222495343949,
+        "sd": 0.013620920435014018,
+        "ci95_low": 0.018212329767749648,
+        "ci95_high": 0.05203212013912933,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_policy_incremental_purchase": {
+        "mean": 0.00036761288013722473,
+        "sd": 0.009931614389560693,
+        "ci95_low": -0.011962138193104946,
+        "ci95_high": 0.012697363953379396,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_policy_total_purchase": {
+        "mean": 0.007913569079505222,
+        "sd": 0.009976347638579755,
+        "ci95_low": -0.004471716754095962,
+        "ci95_high": 0.020298854913106408,
+        "n_seeds": 5
+      },
+      "no_graph_mf": {
+        "delta_incremental_cate_minus_probability": {
+          "mean": -0.00887678688598994,
+          "sd": 0.004916538941266211,
+          "ci95_low": -0.01498049761316361,
+          "ci95_high": -0.0027730761588162702,
+          "n_seeds": 5
+        },
+        "delta_total_cate_minus_probability": {
+          "mean": -0.06118535641166891,
+          "sd": 0.017667249202937368,
+          "ci95_low": -0.08311862690293184,
+          "ci95_high": -0.03925208592040598,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.17166064480940507,
+          "sd": 0.009480575632601337,
+          "ci95_low": 0.15989084254000882,
+          "ci95_high": 0.18343044707880132,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.10750441303683649,
+          "sd": 0.010994132996905796,
+          "ci95_low": 0.09385558236330059,
+          "ci95_high": 0.12115324371037238,
+          "n_seeds": 5
+        }
+      },
+      "lightgcn": {
+        "delta_incremental_cate_minus_probability": {
+          "mean": -0.00457916576829222,
+          "sd": 0.006271845734272386,
+          "ci95_low": -0.012365442363428415,
+          "ci95_high": 0.0032071108268439744,
+          "n_seeds": 5
+        },
+        "delta_total_cate_minus_probability": {
+          "mean": -0.08839401228560333,
+          "sd": 0.021006788813580358,
+          "ci95_low": -0.1144732041229206,
+          "ci95_high": -0.062314820448286054,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.13653841985596563,
+          "sd": 0.009548483513986886,
+          "ci95_low": 0.1246843123326043,
+          "ci95_high": 0.14839252737932696,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.10713680015669928,
+          "sd": 0.011550529900330649,
+          "ci95_low": 0.09279722223422045,
+          "ci95_high": 0.12147637807917812,
+          "n_seeds": 5
+        }
+      }
+    },
+    "graph_effect": {
+      "LightGCN_minus_no_graph_p1_rmse": {
+        "mean": -0.013910311065214781,
+        "sd": 0.003036172023494968,
+        "ci95_low": -0.017679612187556364,
+        "ci95_high": -0.010141009942873199,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_p1_mse": {
+        "mean": -0.0010212389752268798,
+        "sd": 0.00020572684070134135,
+        "ci95_low": -0.0012766416354024813,
+        "ci95_high": -0.0007658363150512782,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_p1_rank_correlation": {
+        "mean": 0.13963627318260657,
+        "sd": 0.0234472461118443,
+        "ci95_low": 0.11052733916922375,
+        "ci95_high": 0.1687452071959894,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_rmse": {
+        "mean": -0.014699141681194277,
+        "sd": 0.0024025973521078626,
+        "ci95_low": -0.01768188206143482,
+        "ci95_high": -0.011716401300953734,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_mae": {
+        "mean": -0.0104147955775261,
+        "sd": 0.0025524363524429667,
+        "ci95_low": -0.013583555823493328,
+        "ci95_high": -0.007246035331558874,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_rank_correlation": {
+        "mean": 0.13590865805239172,
+        "sd": 0.015233602265111472,
+        "ci95_low": 0.1169966749134742,
+        "ci95_high": 0.15482064119130926,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_probability_policy_incremental_purchase": {
+        "mean": 0.1340533929732109,
+        "sd": 0.014553173768150804,
+        "ci95_low": 0.11598613795820077,
+        "ci95_high": 0.15212064798822103,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_probability_policy_total_purchase": {
+        "mean": 0.13329453534550123,
+        "sd": 0.01654157606864347,
+        "ci95_low": 0.11275874858561119,
+        "ci95_high": 0.15383032210539127,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_policy_incremental_purchase": {
+        "mean": 0.13199154277642577,
+        "sd": 0.011256218485318022,
+        "ci95_low": 0.11801734215745296,
+        "ci95_high": 0.14596574339539858,
+        "n_seeds": 5
+      },
+      "LightGCN_minus_no_graph_cate_policy_total_purchase": {
+        "mean": 0.13230976998805985,
+        "sd": 0.014385814612351477,
+        "ci95_low": 0.114450285497548,
+        "ci95_high": 0.1501692544785717,
+        "n_seeds": 5
+      },
+      "no_graph_mf": {
+        "delta_incremental_cate_minus_probability": {
+          "mean": 0.008971739510695019,
+          "sd": 0.005566133299332632,
+          "ci95_low": 0.0020615801620404058,
+          "ci95_high": 0.01588189885934963,
+          "n_seeds": 5
+        },
+        "delta_total_cate_minus_probability": {
+          "mean": 0.00208387235800424,
+          "sd": 0.004560010519597704,
+          "ci95_low": -0.0035772208331594515,
+          "ci95_high": 0.007744965549167931,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.221146991915173,
+          "sd": 0.007909836816129364,
+          "ci95_low": 0.211327206818064,
+          "ci95_high": 0.23096677701228202,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.2071914373503788,
+          "sd": 0.004608428795686356,
+          "ci95_low": 0.20147023456694216,
+          "ci95_high": 0.21291264013381542,
+          "n_seeds": 5
+        }
+      },
+      "lightgcn": {
+        "delta_incremental_cate_minus_probability": {
+          "mean": 0.0069098893139095795,
+          "sd": 0.0032679845584597145,
+          "ci95_low": 0.0028528010564999188,
+          "ci95_high": 0.010966977571319241,
+          "n_seeds": 5
+        },
+        "delta_total_cate_minus_probability": {
+          "mean": 0.0010991070005629201,
+          "sd": 0.002451398657503132,
+          "ci95_low": -0.001944218489406149,
+          "ci95_high": 0.00414243249053199,
+          "n_seeds": 5
+        },
+        "probability_policy_regret_to_oracle_probability": {
+          "mean": 0.08785245656967172,
+          "sd": 0.01605484897102545,
+          "ci95_low": 0.06792092443736165,
+          "ci95_high": 0.10778398870198179,
+          "n_seeds": 5
+        },
+        "cate_policy_regret_to_oracle_cate": {
+          "mean": 0.07519989457395328,
+          "sd": 0.011525248250547784,
+          "ci95_low": 0.06089170293333324,
+          "ci95_high": 0.08950808621457332,
+          "n_seeds": 5
+        }
+      }
+    }
+  }
+}

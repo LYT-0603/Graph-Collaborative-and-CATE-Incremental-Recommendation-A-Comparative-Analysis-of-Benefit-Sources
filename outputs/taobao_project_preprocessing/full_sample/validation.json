@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "checks": [
+    "source MD5 matched",
+    "raw/history/future event counts reconciled",
+    "node and relation IDs valid",
+    "historical timestamps strictly before cutoff",
+    "forward/reverse adjacency matched",
+    "global popularity >= sampled counts",
+    "seven raw-event edge-weight spot checks",
+    "missing rating/price/CATE fields not fabricated"
+  ],
+  "spot_checks": [
+    {
+      "user_id": 909,
+      "item_id": 164806,
+      "events": 1,
+      "weight": 0.6804348852147571
+    },
+    {
+      "user_id": 161767,
+      "item_id": 1860462,
+      "events": 1,
+      "weight": 0.9382974479036559
+    },
+    {
+      "user_id": 304013,
+      "item_id": 2863568,
+      "events": 1,
+      "weight": 0.5660019400920916
+    },
+    {
+      "user_id": 477074,
+      "item_id": 3753906,
+      "events": 1,
+      "weight": 0.21931941840785824
+    },
+    {
+      "user_id": 660319,
+      "item_id": 242345,
+      "events": 1,
+      "weight": 0.44224160891175995
+    },
+    {
+      "user_id": 835265,
+      "item_id": 4234177,
+      "events": 1,
+      "weight": 0.4071755733245373
+    },
+    {
+      "user_id": 1017526,
+      "item_id": 5141304,
+      "events": 1,
+      "weight": 0.8502948834959829
+    }
+  ]
+}

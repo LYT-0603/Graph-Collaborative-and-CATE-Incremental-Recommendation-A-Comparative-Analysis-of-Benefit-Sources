@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": {
+    "source_md5_verified": true,
+    "upstream_graph_validation_passed": true,
+    "history_and_future_are_separated": true,
+    "all_node_features_finite": true,
+    "core2_degrees_at_least_2": true,
+    "core3_degrees_at_least_3": true,
+    "exported_bidirectional_edge_weights_aligned": true
+  }
+}

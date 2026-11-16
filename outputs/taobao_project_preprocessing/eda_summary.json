@@ -1,0 +1,93 @@
+{
+  "source_md5": "2c67e9b4e3908fd30a3f43ec95a7de8c",
+  "full_valid_events": 100095231,
+  "full_user_count": 987991,
+  "full_item_count": 4161138,
+  "history_cutoff": "2017-12-02 00:00:00",
+  "history_event_count_full": 72655203,
+  "sample_history_events": 146237,
+  "sample_future_events": 55924,
+  "sample_users": 2005,
+  "sample_items": 89924,
+  "sample_pair_edges": 112128,
+  "sample_relation_edges": 119288,
+  "sample_density": 0.0006219050478869328,
+  "sample_item_degree_one_count": 76780,
+  "sample_item_degree_one_share": 0.8538321249054758,
+  "sample_item_degree_le2_share": 0.952437613985143,
+  "sample_user_degree_mean": 55.92418952618454,
+  "sample_user_degree_median": 39.0,
+  "sample_item_degree_mean": 1.2469196210133002,
+  "sample_item_degree_median": 1.0,
+  "pair_mean_events": 1.3041969891552512,
+  "historical_exact_duplicate_rows": 0,
+  "historical_missing_cells": 0,
+  "historical_min_timestamp": 1511539200,
+  "historical_max_timestamp": 1512143999,
+  "sample_behavior_relation_counts": {
+    "buy": 2770,
+    "cart": 7906,
+    "fav": 3879,
+    "pv": 104733
+  },
+  "cores": {
+    "2-core": {
+      "k": 2,
+      "users": 1801,
+      "items": 13060,
+      "pair_edges": 35144,
+      "behavior_relations": 37365,
+      "density": 0.0014941503486662591,
+      "user_degree_mean": 19.513603553581344,
+      "user_degree_median": 13.0,
+      "item_degree_mean": 2.6909647779479324,
+      "item_degree_median": 2.0,
+      "item_degree_min": 2,
+      "item_degree_max": 38,
+      "retain_user_share": 0.8982543640897755,
+      "retain_item_share": 0.14523375294693297,
+      "retain_edge_share": 0.3134275114155251,
+      "split_counts": {
+        "train": 1081,
+        "validation": 360,
+        "test": 360
+      },
+      "candidate_pairs": 180100,
+      "candidate_pool_per_user": 100,
+      "candidate_rule": "uniform without replacement from history-known core items, excluding each user's historical neighbors",
+      "npz": "bipartite_graph.npz"
+    },
+    "3-core": {
+      "k": 3,
+      "users": 1271,
+      "items": 3960,
+      "pair_edges": 16320,
+      "behavior_relations": 17299,
+      "density": 0.003242495768066185,
+      "user_degree_mean": 12.840283241542092,
+      "user_degree_median": 9.0,
+      "item_degree_mean": 4.121212121212121,
+      "item_degree_median": 3.0,
+      "item_degree_min": 3,
+      "item_degree_max": 38,
+      "retain_user_share": 0.6339152119700748,
+      "retain_item_share": 0.04403718695787554,
+      "retain_edge_share": 0.14554794520547945,
+      "split_counts": {
+        "train": 763,
+        "validation": 254,
+        "test": 254
+      },
+      "candidate_pairs": 127100,
+      "candidate_pool_per_user": 100,
+      "candidate_rule": "uniform without replacement from history-known core items, excluding each user's historical neighbors",
+      "npz": "bipartite_graph.npz"
+    }
+  },
+  "notes": [
+    "2-core/3-core are derived from pre-treatment historical edges only.",
+    "User splits contain no treatment or outcome labels; outcomes must be generated only after the split is fixed.",
+    "Observed future behavior is descriptive holdout data, not exposure, treatment, or a causal outcome label.",
+    "No rating, price, comment count, or real CATE is present in the source data."
+  ]
+}

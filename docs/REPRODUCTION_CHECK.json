@@ -1,0 +1,18 @@
+{
+  "checked_on": "2026-11-16",
+  "fixed_data": "passed",
+  "preprocessing_reproduction": "passed",
+  "exactly_matching_preprocessing_tables": 12,
+  "reproduced_runs": 20,
+  "metric_max_absolute_difference": 0.0,
+  "metric_match": true,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "3.0.1",
+  "system": "Windows",
+  "notes": [
+    "Reference results were preserved. Full regeneration used artifacts/reproduction.",
+    "Candidate exclusion, split counts, simulated truth and policy value identities were checked.",
+    "Exact numeric match was observed in this runtime; other BLAS/platforms may differ."
+  ]
+}

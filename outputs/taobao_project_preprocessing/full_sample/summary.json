@@ -1,0 +1,99 @@
+{
+  "source_zip": "C:/path/UserBehavior.csv.zip",
+  "source_columns": [
+    "user_id",
+    "item_id",
+    "category_id",
+    "behavior",
+    "timestamp"
+  ],
+  "timezone": "Asia/Shanghai",
+  "official_start": "2017-11-25 00:00:00",
+  "historical_cutoff_exclusive": "2017-12-02 00:00:00",
+  "end_exclusive": "2017-12-04 00:00:00",
+  "total_rows": 100150807,
+  "window_rows": 100095231,
+  "excluded_rows": 55576,
+  "all_behavior_counts": {
+    "pv": 89716264,
+    "cart": 5530446,
+    "fav": 2888258,
+    "buy": 2015839
+  },
+  "window_behavior_counts": {
+    "pv": 89660688,
+    "cart": 5530446,
+    "fav": 2888258,
+    "buy": 2015839
+  },
+  "historical_behavior_counts": {
+    "pv": 65093744,
+    "cart": 3961972,
+    "fav": 2099312,
+    "buy": 1500175
+  },
+  "historical_event_count": 72655203,
+  "raw_min_timestamp": -2134949234,
+  "raw_max_timestamp": 2122867355,
+  "user_mod": 500,
+  "sampling_seed": 20261109,
+  "lambda_hours": 72,
+  "behavior_weight_assumptions": {
+    "pv": 1.0,
+    "fav": 2.0,
+    "cart": 3.0,
+    "buy": 4.0
+  },
+  "csv_uncompressed_bytes": 3672347465,
+  "csv_member": "UserBehavior.csv",
+  "window_unique_users": 987991,
+  "window_unique_items": 4161138,
+  "sample_window_events": 202161,
+  "sample_window_users": 2005,
+  "sample_window_items": 117577,
+  "scan_seconds": 70.56,
+  "source_md5": "2c67e9b4e3908fd30a3f43ec95a7de8c",
+  "expected_md5": "2c67e9b4e3908fd30a3f43ec95a7de8c",
+  "md5_match": true,
+  "sample_historical_events": 146237,
+  "sample_historical_users": 2005,
+  "sample_historical_items": 89924,
+  "sample_unique_user_item_edges": 112128,
+  "sample_unique_relation_edges": 119288,
+  "sample_future_events": 55924,
+  "historical_graph_density": 0.0006219050478869328,
+  "npz_directed_edges": 224256,
+  "user_feature_columns": [
+    "log_interaction_count",
+    "log_unique_item_count",
+    "log_pv_count",
+    "log_fav_count",
+    "log_cart_count",
+    "log_buy_count",
+    "recency_days",
+    "active_days",
+    "log_events_per_active_day",
+    "preferred_category_share"
+  ],
+  "item_feature_columns": [
+    "log_sample_interaction_count",
+    "log_sample_unique_user_count",
+    "log_global_interaction_count",
+    "log_global_buy_count",
+    "sample_recency_days",
+    "log_sample_pv_count",
+    "log_sample_fav_count",
+    "log_sample_cart_count",
+    "log_sample_buy_count"
+  ],
+  "validation": {
+    "event_count_reconciled": true,
+    "feature_finite": true,
+    "historical_cutoff_enforced": true,
+    "bipartite_indices_valid": true
+  },
+  "display_users": 12,
+  "display_items": 27,
+  "display_pairs": 70,
+  "display_relations": 77
+}

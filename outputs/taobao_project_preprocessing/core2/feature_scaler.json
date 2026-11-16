@@ -1,0 +1,75 @@
+{
+  "fit_rule": "train users; items adjacent to train users in the historical core graph",
+  "seed": 20261114,
+  "user_feature_names": [
+    "log_interaction_count",
+    "log_unique_item_count",
+    "log_pv_count",
+    "log_fav_count",
+    "log_cart_count",
+    "log_buy_count",
+    "recency_days",
+    "active_days",
+    "log_events_per_active_day",
+    "preferred_category_share"
+  ],
+  "item_feature_names": [
+    "log_sample_interaction_count",
+    "log_sample_unique_user_count",
+    "log_global_interaction_count",
+    "log_global_buy_count",
+    "sample_recency_days",
+    "log_sample_pv_count",
+    "log_sample_fav_count",
+    "log_sample_cart_count",
+    "log_sample_buy_count"
+  ],
+  "user_mean": [
+    4.0193376541137695,
+    3.7940478324890137,
+    3.8850154876708984,
+    0.5473213195800781,
+    1.1744056940078735,
+    0.6856253743171692,
+    0.6362972259521484,
+    5.263644695281982,
+    2.4987151622772217,
+    0.28914880752563477
+  ],
+  "user_std": [
+    0.9228206276893616,
+    0.8672775030136108,
+    0.9751672148704529,
+    0.8970797061920166,
+    0.9872084856033325,
+    0.680605411529541,
+    0.9344798922538757,
+    1.5555859804153442,
+    0.6903458833694458,
+    0.1596631109714508
+  ],
+  "item_mean": [
+    1.429905891418457,
+    1.271843433380127,
+    6.252466678619385,
+    1.9190431833267212,
+    1.8279645442962646,
+    1.3446863889694214,
+    0.06382890790700912,
+    0.13392479717731476,
+    0.04125099256634712
+  ],
+  "item_std": [
+    0.3989851176738739,
+    0.29124635457992554,
+    1.153478980064392,
+    1.2931157350540161,
+    1.6005377769470215,
+    0.41526108980178833,
+    0.20578333735466003,
+    0.29437318444252014,
+    0.1718597263097763
+  ],
+  "num_fit_users": 1081,
+  "num_fit_items": 11579
+}

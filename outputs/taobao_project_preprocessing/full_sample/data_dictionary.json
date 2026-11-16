@@ -1,0 +1,76 @@
+{
+  "user_nodes.csv": {
+    "user_index": "0-based graph user index",
+    "interaction_count": "all raw events for selected user before cutoff",
+    "unique_item_count": "distinct historical item neighbors",
+    "active_days": "distinct dates in Asia/Shanghai",
+    "events_per_active_day": "event count / active days",
+    "events_per_observation_day": "event count / historical window days",
+    "purchase_event_share": "buy events / all events; NOT conversion probability",
+    "preferred_category_id": "most frequent historical category; smallest ID breaks ties",
+    "recency_hours": "hours since last pre-cutoff event"
+  },
+  "item_nodes.csv": {
+    "item_index": "0-based item-local index",
+    "global_node_index": "num_users + item_index",
+    "sample_interaction_count": "events among selected users only",
+    "sample_unique_user_count": "degree in sampled graph",
+    "global_historical_interaction_count": "all users' events before cutoff, from full scan",
+    "global_historical_buy_count": "all users' buys before cutoff, from full scan",
+    "global_interaction_share": "global item events / global historical events",
+    "category_id": "mode among sampled historical records"
+  },
+  "user_item_edges.csv": {
+    "interaction_count": "events of any behavior per pair",
+    "pv_count / fav_count / cart_count / buy_count": "per-behavior event counts",
+    "edge_weight_raw": "sum over all historical events alpha(behavior)*exp(-(T-t)/lambda)",
+    "edge_weight_equal_behavior": "same sum with every alpha=1",
+    "edge_weight_normalized": "edge_weight_raw / sqrt(sum_user_weights*sum_item_weights)",
+    "category_preference_match": "user historical fraction in item's modal category; NOT CATE or embedding cosine",
+    "deepest_observed_behavior": "visual collapse using buy > cart > fav > pv; descriptive convention, no causal interpretation"
+  },
+  "relation_edges.csv": {
+    "one row": "one user-item-behavior relation",
+    "temporal_count": "sum of exp(-(T-t)/lambda) for this behavior",
+    "weighted_temporal_count": "behavior_alpha*temporal_count",
+    "relation_index": "pv=0, fav=1, cart=2, buy=3"
+  },
+  "core_indexing": {
+    "user_index": "当前 core 内从 0 开始的用户局部索引。",
+    "item_index": "当前 core 内从 0 开始的商品局部索引。",
+    "global_node_index": "图中的商品节点索引 = 当前 core 用户数 + item_index。",
+    "source_user_index / source_item_index": "筛选前完整抽样历史图中的原索引，用于追溯映射。",
+    "source_index / target_index": "配对边和关系边的当前图全局索引。用户在前，商品在后。",
+    "graph_degree_in_core": "当前 core 图中的不同邻居数。其他计数特征仍保留完整处理前历史含义。"
+  },
+  "candidate_pairs.csv": {
+    "user_index / item_index": "当前 core 内局部索引。两类节点都来自历史已知节点。",
+    "user_id / item_id / category_id": "原始 ID，均为离散标识，不作连续数值使用。",
+    "candidate_rank_in_pool": "候选保存序号 0 至 99，与模型排序或偏好强弱无关。",
+    "split": "按用户固定分为 train / validation / test。",
+    "sampling_rule": "每用户均匀无放回抽取 100 个历史未交互的 core 商品，不代表曝光或负标签。"
+  },
+  "user_split.csv": {
+    "split": "用户级约 60% / 20% / 20% 划分。处理前历史图共享，新的 A/Y 标签遵守用户分区。",
+    "seed": "20261114。"
+  },
+  "bipartite_graph.npz": {
+    "edge_index": "形状 [2, 2E]，前 E 列用户到商品，后 E 列为对应反向边。",
+    "edge_weight": "长度 2E 的对称归一化历史关系权重，与 edge_index 逐列对齐。主 LightGCN 二值实验应自行用二值度数归一化。",
+    "edge_weight_raw": "长度 2E 的行为与时间衰减权重，正反两向相同。不是 CATE。",
+    "relation_edge_index / relation_type / relation_temporal_weight": "按浏览、收藏、加购和购买分别保存的双向关系及对应类型、权重，长度相同。",
+    "user_features / item_features": "10 维用户、9 维商品特征。计数已 log1p，近期性按天，尚未作均值方差标准化。",
+    "user_feature_names / item_feature_names": "对应特征列名，按数组列顺序解释。",
+    "user_ids / item_ids": "局部索引到原始 ID 的映射。"
+  },
+  "scaled_node_features.npz / feature_scaler.json": {
+    "fit_population": "仅训练用户及其历史相邻商品。",
+    "transform": "(原数值特征 - mean) / std。近零标准差替换为 1。类别 ID 不进入此变换。",
+    "causal_boundary": "不读取未来事件或 A/Y，不会因后续生成的结果标签而更新。"
+  },
+  "full_sample/": {
+    "sample_events.csv": "同一固定抽样用户在全部九天内的事件。含未来事件，不能整体输入历史训练。",
+    "future_events_holdout.csv": "2017-12-02 至 12-03 描述性留出事件，不属于真实因果实验。",
+    "other_graph_files": "仅 2017-12-02 零时之前历史数据构建的完整抽样图。"
+  }
+}

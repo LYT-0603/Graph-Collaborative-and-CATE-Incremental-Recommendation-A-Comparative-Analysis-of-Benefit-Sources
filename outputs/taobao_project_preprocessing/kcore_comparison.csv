@@ -1,0 +1,4 @@
+﻿graph,k,users,items,pair_edges,retain_user_share,retain_item_share,retain_edge_share,mean_user_degree,mean_item_degree
+完整样本图,0,2005,89924,112128,1,1,1,55.92419,1.2469196
+2-core,2,1801,13060,35144,0.89825436,0.14523375,0.31342751,19.513604,2.6909648
+3-core,3,1271,3960,16320,0.63391521,0.044037187,0.14554795,12.840283,4.1212121
